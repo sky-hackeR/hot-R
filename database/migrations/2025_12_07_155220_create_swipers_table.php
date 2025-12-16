@@ -15,7 +15,13 @@ class CreateSwipersTable extends Migration
     {
         Schema::create('swipers', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->nullable();
+            $table->string('subtitle')->nullable();
+            $table->string('image')->nullable();
+            $table->string('video_url')->nullable();
+            $table->boolean('is_video')->default(false);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

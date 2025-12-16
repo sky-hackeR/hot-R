@@ -142,7 +142,14 @@
                                     <i class="bx bx-cog"></i>
                                     <span key="t-settings">Site Settings</span>
                                 </a>
-                            </li>                               
+                            </li>      
+                            
+                            <li>
+                                <a href="{{ url('/admin/swipers') }}" class="waves-effect">
+                                    <i class="bx bx-cog"></i>
+                                    <span key="t-settings">Swiper</span>
+                                </a>
+                            </li>
 
                             <li class="menu-title" key="t-auth"></li>
                             <li>

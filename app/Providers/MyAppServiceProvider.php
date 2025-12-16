@@ -38,6 +38,7 @@ class MyAppServiceProvider extends ServiceProvider
 
         $data = new \stdClass();
         $data->setting = $setting;
+        $data->swiperVideoOnly = (bool) optional($setting)->swiper_video_only;
 
         return $data;
     }

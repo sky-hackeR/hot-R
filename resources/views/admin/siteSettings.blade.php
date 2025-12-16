@@ -22,6 +22,18 @@
                 <form action="{{ url('/admin/updateSiteInfo') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="site_info_id" value="{{ !empty($setting) ? $setting->id : null }}">
+                    <hr>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Swiper Display Settings</label>
+                        <p class="text-danger mb-1">Enable this toggle if you want all swiper slides to show video only.</p>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input form-check-input-lg" type="checkbox" id="swiperVideoOnly" name="swiper_video_only" value="1" {{ old('swiper_video_only', $setting?->swiper_video_only) ? 'checked' : '' }}>
+                            <label class="form-check-label" for="swiperVideoOnly">Swiper Video Only</label>
+                        </div>
+                    </div>
+                    <hr>
+                    <br>
 
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" id="floatingnameInput" placeholder="Enter Site Name" name="site_name" value="{{ old('site_name', $setting?->site_name) }}">
@@ -47,6 +59,7 @@
                         </div>
                     </fieldset>
 
+
                     <div>
                         <button type="submit" class="btn btn-primary w-md">Save</button>
                     </div>
@@ -62,6 +75,12 @@
                 <h5 class="card-title mb-4">Current Settings</h5>
                 <table class="table table-borderless">
                     <tbody>
+                        <tr>
+                            <td><strong>Swiper Video Only</strong></td>
+                            <td>{{ $setting?->swiper_video_only ? 'Yes' : 'No' }}</td>
+                        </tr>
+
+
                         <tr>
                             <td><strong>Site Name</strong></td>
                             <td>{{ $setting?->site_name ?? 'N/A' }}</td>

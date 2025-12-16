@@ -36,6 +36,11 @@ Route::group(['prefix' => 'admin'], function () {
   
   Route::get('/home', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('home')->middleware(['auth:admin']);
   Route::get('/siteSettings', [App\Http\Controllers\Admin\AdminController::class, 'siteSettings'])->name('siteSettings')->middleware(['auth:admin']);
+
+  Route::get('/swipers', [App\Http\Controllers\Admin\AdminController::class, 'swipers'])->name('swipers')->middleware(['auth:admin']);
+  Route::post('/addSwiper', [App\Http\Controllers\Admin\AdminController::class, 'addSwiper'])->name('addSwiper')->middleware(['auth:admin']);
+  Route::post('/editSwiper', [App\Http\Controllers\Admin\AdminController::class, 'editSwiper'])->name('editSwiper')->middleware(['auth:admin']);
+  Route::post('/deleteSwiper', [App\Http\Controllers\Admin\AdminController::class, 'deleteSwiper'])->name('deleteSwiper')->middleware(['auth:admin']);
 });
 
 
